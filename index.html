@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinclair ZX Spectrum Tribute - Hasta el +3</title>
+    <style>
+        body {
+            margin: 0; padding: 0; background: #000; color: #0f0; font-family: 'Courier New', monospace;
+            overflow: hidden; text-align: center;
+        }
+        #container {
+            max-width: 850px; margin: 0 auto; padding: 20px;
+        }
+        img {
+            max-width: 100%; height: auto; border: 4px solid #ff0; image-rendering: pixelated;
+            box-shadow: 0 0 30px #0ff;
+        }
+        .info {
+            margin: 20px auto; padding: 15px; background: rgba(0,255,0,0.1); border: 2px solid #0f0;
+            max-width: 750px; font-size: 18px; line-height: 1.4;
+        }
+        h1 { color: #ff0; text-shadow: 0 0 10px #ff0; }
+        button {
+            background: #000; color: #0f0; border: 2px solid #0f0; padding: 12px 25px;
+            font-size: 18px; cursor: pointer; margin: 10px;
+        }
+        button:hover { background: #0f0; color: #000; }
+        .progress { height: 6px; background: linear-gradient(to right, #0f0, #ff0); width: 0%; transition: width 0.3s; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>SINCLAIR ZX SPECTRUM RETRO</h1>
+        <p style="color:#aaa;">Desde el ZX80 hasta el legendario +3 • ~40 segundos</p>
+        
+        <div id="display">
+            <img id="computer-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg" alt="ZX80">
+            <div class="info" id="info-text"></div>
+        </div>
+        
+        <div class="progress" id="progress"></div>
+        
+        <button onclick="startShow()">▶ INICIAR SHOW RETRO</button>
+        <button onclick="stopShow()">⏹ Detener</button>
+    </div>
+
+    <!-- Audios (reemplaza con enlaces directos a MP3 libres o sube tus propios archivos) -->
+    <audio id="audio0" preload="auto"></audio>
+    <audio id="audio1" preload="auto"></audio>
+    <audio id="audio2" src="https://archive.org/download/manic-miner-theme/Manic%20Miner%20Theme.mp3" preload="auto"></audio> <!-- Manic Miner -->
+    <audio id="audio3" preload="auto"></audio> <!-- +3: busca AY chiptune como Robocop o Chase HQ -->
+
+    <script>
+        const computers = [
+            {
+                img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg",
+                title: "ZX80 (1980)",
+                info: "Primer home computer británico asequible (£99.95 kit £49.95).<br>Z80 3.25 MHz • 1-4 KB RAM • Sin color real.",
+                audio: 0
+            },
+            {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Sinclair_ZX81.jpg/800px-Sinclair_ZX81.jpg",
+                title: "ZX81 (1981)",
+                info: "Más de 1.5 millones vendidos.<br>1 KB RAM • Juego icónico: 3D Monster Maze.",
+                audio: 1
+            },
+            {
+                img: "https://upload.wikimedia.org/wikipedia/commons/0/03/ZXSpectrum48k.jpg",
+                title: "ZX Spectrum 48K (1982)",
+                info: "La leyenda británica.<br>Z80 3.5 MHz • 48 KB RAM • Gráficos color + attribute clash.<br>Manic Miner, Jet Set Willy...",
+                audio: 2
+            },
+            {
+                img: "https://upload.wikimedia.org/wikipedia/commons/0/0e/ZX_Spectrum_Plus3.jpeg",  // URL directa aproximada
+                title: "ZX Spectrum +3 (1987)",
+                info: "¡El broche final!<br>128 KB RAM • Disquetera 3\" integrada • AY-3-8912 sonido mejorado.<br>Compatible CP/M • Fin de una era.",
+                audio: 3
+            }
+        ];
+
+        let current = 0;
+        let interval, timeout;
+        let audios = document.querySelectorAll('audio');
+
+        function showComputer(index) {
+            current = index % computers.length;
+            const c = computers[current];
+            
+            document.getElementById('computer-img').src = c.img;
+            document.getElementById('info-text').innerHTML = `<strong>${c.title}</strong><br>${c.info}`;
+            
+            audios.forEach(a => { a.pause(); a.currentTime = 0; });
+            if (audios[current] && audios[current].src) {
+                audios[current].play().catch(() => console.log("Audio no disponible"));
+            }
+        }
+
+        function startShow() {
+            stopShow();
+            let time = 0;
+            showComputer(0);
+            
+            interval = setInterval(() => {
+                time += 10;
+                document.getElementById('progress').style.width = Math.min((time / 40 * 100), 100) + '%';
+                if (time >= 40) stopShow();
+            }, 10000);
+            
+            timeout = setTimeout(() => stopShow(), 40000);
+        }
+
+        function stopShow() {
+            clearInterval(interval);
+            clearTimeout(timeout);
+            document.getElementById('progress').style.width = '0%';
+            audios.forEach(a => a.pause());
+        }
+    </script>
+</body>
+</html>
