@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinclair ZX Spectrum Tribute - Versión Definitiva</title>
+    <title>Sinclair ZX Spectrum Tribute - Versión Definitiva 2026</title>
     <style>
         body {
             margin: 0; padding: 0; background: #000; color: #0f0; font-family: 'Courier New', monospace;
@@ -21,10 +21,17 @@
             background: #111;
             border: 4px solid #ff0;
             box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            position: relative;
             overflow: hidden;
+        }
+        /* Fondo de arcoíris retro en caso de que tarde en cargar */
+        .img-container::before {
+            content: ""; position: absolute; bottom: 0; right: 0; width: 100px; height: 10px;
+            background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f); opacity: 0.7;
         }
         img {
             max-height: 95%; max-width: 95%; height: auto; object-fit: contain;
+            z-index: 2; position: relative;
         }
         .info {
             margin: 20px auto; padding: 15px; background: rgba(0,255,0,0.1); border: 2px solid #0f0;
@@ -47,15 +54,15 @@
 <body>
     <div id="container">
         <h1>SINCLAIR ZX SPECTRUM RETRO SHOW</h1>
-        <p style="color:#aaa; margin-top: 0;">Imágenes estables CDN • Música Chiptune AY-3-8912 (RoboCop / Out Run)</p>
+        <p style="color:#aaa; margin-top: 0;">Imágenes directas de Wikimedia Commons • Música Chiptune AY-3-8912</p>
         
         <div id="display">
             <div class="img-container">
-                <img id="computer-img" src="https:// canonic-images-mirror (Asignado dinámicamente)" alt="Presiona Iniciar">
+                <img id="computer-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg" alt="Presiona Iniciar">
             </div>
             <div class="info" id="info-text">
                 <strong>La Evolución de Sinclair</strong>
-                Presiona "▶ INICIAR SHOW RETRO" para cargar las imágenes desde servidores CDN abiertos y activar el sintetizador de sonido interno.
+                Presiona "▶ INICIAR SHOW RETRO" para activar los circuitos de audio analógicos y arrancar el carrusel de imágenes reales históricas.
             </div>
         </div>
         
@@ -68,48 +75,48 @@
     </div>
 
     <script>
-        // Servidores CDN alternativos libres de bloqueos de Hotlinking
+        // URLs directas de producción de Wikimedia Commons (máxima estabilidad global)
         const computers = [
             {
-                img: "https://images.squarespace-cdn.com/content/v1/5e5fb39da33e38101db912cb/1603975056715-O280Y05DCO8QO5W3SGEG/ZX80.jpg",
+                img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg",
                 title: "ZX80 (1980) - El Origen",
                 tech: "Z80A @ 3.25 MHz | 1 KB RAM | Vídeo Monocromo.",
-                curiosity: "Curiosidad: Se vendía en kit para montar. La pantalla parpadeaba al pulsar cualquier tecla porque la CPU no podía procesar datos y generar vídeo a la vez.",
+                curiosity: "Curiosidad: Se vendía en kit para armar en casa. La pantalla parpadeaba al pulsar cualquier tecla porque la CPU no podía procesar datos y generar vídeo a la vez.",
                 audioType: "load"
             },
             {
-                img: "https://images.squarespace-cdn.com/content/v1/5e5fb39da33e38101db912cb/1604164805367-XF88C022791Q8CZOEQLK/ZX81.jpg",
+                img: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Sinclair_ZX81.jpg",
                 title: "ZX81 (1981) - El Éxito Masivo",
                 tech: "Z80A @ 3.25 MHz | 1 KB RAM | Modo 'SLOW' incorporado.",
-                curiosity: "Curiosidad: Redujo el coste integrando un chip ULA. Aquí nació '3D Monster Maze', el primer juego en 3D y survival horror en una computadora doméstica.",
+                curiosity: "Curiosidad: Redujo costes drásticamente al integrar un chip ULA. Aquí nació '3D Monster Maze', considerado el primer survival horror de la historia.",
                 audioType: "load"
             },
             {
-                img: "https://images.squarespace-cdn.com/content/v1/5e5fb39da33e38101db912cb/1585840618035-714M7SPS80753OUIFUTT/zx_spectrum_48k.jpg",
+                img: "https://upload.wikimedia.org/wikipedia/commons/0/03/ZXSpectrum48k.jpg",
                 title: "ZX Spectrum 48K (1982) - La Leyenda del Arcoíris",
                 tech: "Z80A @ 3.5 MHz | 48 KB RAM | Gráficos a color | Altavoz 'Beeper'.",
                 curiosity: "Curiosidad: Sus teclas de goma parecían 'carne muerta'. El choque de atributos gráficos (Attribute Clash) limitaba los colores pero creó su estética icónica.",
                 audioType: "manic"
             },
             {
-                img: "https://retroordenadores.com/wp-content/uploads/2019/04/Sinclair-ZX-Spectrum-128.jpg",
+                img: "https://upload.wikimedia.org/wikipedia/commons/c/ce/ZX_Spectrum_128k.jpg",
                 title: "ZX Spectrum 128 (1985) - El 'Radiador'",
                 tech: "Z80A @ 3.54 MHz | 128 KB RAM | Sonido AY-3-8912 de 3 canales.",
-                curiosity: "Curiosidad: Apodado 'el radiador' por su enorme disipador negro exterior. Fue diseñado originalmente en España junto a Investrónica.",
+                curiosity: "Curiosidad: Apodado 'el radiador' por su enorme disipador negro exterior. Desarrollado en España junto a Investrónica antes de ser lanzado en el Reino Unido.",
                 audioType: "robocop"
             },
             {
-                img: "https://retroordenadores.com/wp-content/uploads/2019/04/Sinclair-ZX-Spectrum-2.jpg",
+                img: "https://upload.wikimedia.org/wikipedia/commons/a/a7/ZX_Spectrum_%2B2.jpg",
                 title: "ZX Spectrum +2 (1986) - La Era Amstrad",
                 tech: "128 KB RAM | Casetera 'Datacorder' integrada | Teclado mecánico.",
-                curiosity: "Curiosidad: Primer modelo tras la compra de Amstrad. Perdió el diseño vanguardista de Sinclair pero ganó en fiabilidad con su grabadora integrada.",
+                curiosity: "Curiosidad: Primer modelo tras la compra de Amstrad. Perdió el diseño vanguardista de Sinclair pero ganó fiabilidad masiva con su grabadora de casete integrada.",
                 audioType: "outrun"
             },
             {
-                img: "https://retroordenadores.com/wp-content/uploads/2019/04/Sinclair-ZX-Spectrum-3.jpg",
+                img: "https://upload.wikimedia.org/wikipedia/commons/0/0e/ZX_Spectrum_Plus3.jpeg",
                 title: "ZX Spectrum +3 (1987) - El Broche de Oro",
                 tech: "128 KB RAM | Disquetera de 3 pulgadas integrada | Sistema +3DOS.",
-                curiosity: "Curiosidad: Reemplazó las cintas por discos. Era tan potente y robusto que podía ejecutar el sistema operativo profesional CP/M de oficina.",
+                curiosity: "Curiosidad: Reemplazó las cintas por discos magnéticos. Era tan potente y robusto que podía ejecutar el sistema operativo profesional de oficina CP/M.",
                 audioType: "robocop"
             }
         ];
@@ -120,7 +127,7 @@
         let progressTime = 0;
         const durationPerModel = 10000; 
 
-        // WEB AUDIO API - SINTETIZADOR DE MÚSICA RETRO
+        // SINTETIZADOR DE MÚSICA NATIVA (Web Audio API)
         let audioCtx = null;
         let sequencer = null;
 
@@ -134,7 +141,6 @@
             if (sequencer) clearInterval(sequencer);
         }
 
-        // Notas musicales en frecuencias (Hz)
         const NOTE_C4 = 261.63, NOTE_D4 = 293.66, NOTE_E4 = 329.63, NOTE_F4 = 349.23, NOTE_G4 = 392.00, NOTE_A4 = 440.00, NOTE_B4 = 493.88;
         const NOTE_C5 = 523.25, NOTE_D5 = 587.33, NOTE_E5 = 659.25, NOTE_F5 = 698.46, NOTE_G5 = 783.99, NOTE_A5 = 880.00;
 
@@ -143,10 +149,9 @@
             let osc = audioCtx.createOscillator();
             let gain = audioCtx.createGain();
             
-            osc.type = type; // 'square' para sonido puramente Spectrum, 'triangle' para bajos
+            osc.type = type; 
             osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
             
-            // Envolvente de sonido retro (衰減)
             gain.gain.setValueAtTime(vol, audioCtx.currentTime);
             gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
             
@@ -165,13 +170,13 @@
             let step = 0;
 
             if (type === "load") {
-                // Sonido real de carga de cinta (mítico espectro ruidoso)
+                // Sonido de carga clásico
                 sequencer = setInterval(() => {
                     playNote(Math.random() * 900 + 300, 'square', 0.04, 0.02);
                 }, 50);
             } 
             else if (type === "manic") {
-                // Manic Miner (En el palacio del rey de la montaña)
+                // Manic Miner
                 let melody = [NOTE_A4, NOTE_B4, NOTE_C5, NOTE_D5, NOTE_E5, NOTE_C5, NOTE_E5, NOTE_D5, NOTE_B4, NOTE_D5, NOTE_C5, NOTE_A4, NOTE_C5, NOTE_B4];
                 sequencer = setInterval(() => {
                     let note = melody[step % melody.length];
@@ -180,27 +185,25 @@
                 }, 220);
             } 
             else if (type === "robocop") {
-                // Bucle de la mítica melodía de ROBOCOP (Jonathan Dunn)
+                // Melodía principal de ROBOCOP por Jonathan Dunn (2 Canales emulados)
                 let robocopMelody = [
                     NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_B4, NOTE_G4, NOTE_E4, NOTE_D4,
                     NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_D5, NOTE_B4, NOTE_G4, NOTE_G4
                 ];
                 sequencer = setInterval(() => {
                     let note = robocopMelody[step % robocopMelody.length];
-                    // Melodía principal
-                    playNote(note, 'square', 0.25, 0.05);
-                    // Bajo acompañante tipo CHIP AY
-                    if (step % 2 === 0) playNote(note / 2, 'triangle', 0.3, 0.08);
+                    playNote(note, 'square', 0.25, 0.05); // Canal de melodía
+                    if (step % 2 === 0) playNote(note / 2, 'triangle', 0.3, 0.08); // Canal de bajo
                     step++;
                 }, 200);
             } 
             else if (type === "outrun") {
-                // Acordes rítmicos inspirados en OUT RUN (Magical Sound Shower)
+                // Acordes rítmicos inspirados en Out Run
                 let outrunMelody = [NOTE_D4, NOTE_G4, NOTE_A4, NOTE_C5, NOTE_B4, NOTE_G4, NOTE_A4, NOTE_D4];
                 sequencer = setInterval(() => {
                     let note = outrunMelody[step % outrunMelody.length];
-                    playNote(note * 1.5, 'square', 0.15, 0.04);
-                    playNote(note, 'square', 0.15, 0.02); // Armónico instantáneo
+                    playNote(note * 1.5, 'square', 0.15, 0.03);
+                    playNote(note, 'square', 0.15, 0.02); 
                     step++;
                 }, 180);
             }
@@ -210,19 +213,18 @@
             current = index;
             const c = computers[current];
             
-            // Actualizar imagen con manejo de errores por seguridad
+            // Forzar recarga limpia en el DOM
             const imgEl = document.getElementById('computer-img');
-            imgEl.src = c.img;
+            imgEl.removeAttribute('src'); 
+            imgEl.setAttribute('src', c.img);
             imgEl.alt = c.title;
             
-            // Actualizar datos de texto
             document.getElementById('info-text').innerHTML = `
                 <strong>${c.title}</strong>
                 <div class="tech-data"><strong>Especificaciones:</strong> ${c.tech}</div>
                 <div class="curiosity">${c.curiosity}</div>
             `;
             
-            // Ejecutar la música correspondiente
             playMusic(c.audioType);
         }
 
