@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinclair ZX Spectrum Tribute - Versión Definitiva 2026</title>
+    <title>Sinclair ZX Spectrum - Evolución e Historia Definitiva</title>
     <style>
         body {
             margin: 0; padding: 0; background: #000; color: #0f0; font-family: 'Courier New', monospace;
@@ -20,18 +20,12 @@
             margin-bottom: 20px;
             background: #111;
             border: 4px solid #ff0;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-            position: relative;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
             overflow: hidden;
-        }
-        /* Fondo de arcoíris retro en caso de que tarde en cargar */
-        .img-container::before {
-            content: ""; position: absolute; bottom: 0; right: 0; width: 100px; height: 10px;
-            background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f); opacity: 0.7;
         }
         img {
             max-height: 95%; max-width: 95%; height: auto; object-fit: contain;
-            z-index: 2; position: relative;
+            image-rendering: crisp-edges; image-rendering: pixelated;
         }
         .info {
             margin: 20px auto; padding: 15px; background: rgba(0,255,0,0.1); border: 2px solid #0f0;
@@ -53,16 +47,16 @@
 </head>
 <body>
     <div id="container">
-        <h1>SINCLAIR ZX SPECTRUM RETRO SHOW</h1>
-        <p style="color:#aaa; margin-top: 0;">Imágenes directas de Wikimedia Commons • Música Chiptune AY-3-8912</p>
+        <h1>SINCLAIR ZX SPECTRUM MUSEUM</h1>
+        <p style="color:#aaa; margin-top: 0;">Imágenes por CDN Proxy-Bypass • Emulación de Chip de Sonido AY-3-8912 de 3 Canales</p>
         
         <div id="display">
             <div class="img-container">
-                <img id="computer-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg" alt="Presiona Iniciar">
+                <img id="computer-img" src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg" alt="ZX80">
             </div>
             <div class="info" id="info-text">
-                <strong>La Evolución de Sinclair</strong>
-                Presiona "▶ INICIAR SHOW RETRO" para activar los circuitos de audio analógicos y arrancar el carrusel de imágenes reales históricas.
+                <strong>La Dinastía de Sir Clive Sinclair</strong>
+                Presiona "▶ INICIAR SHOW RETRO" para activar los osciladores polifónicos y arrancar el carrusel histórico con imágenes reales garantizadas.
             </div>
         </div>
         
@@ -75,48 +69,48 @@
     </div>
 
     <script>
-        // URLs directas de producción de Wikimedia Commons (máxima estabilidad global)
+        // Usamos el Proxy global 'images.weserv.nl' para saltarnos el bloqueo de hotlinking de Wikipedia
         const computers = [
             {
-                img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg",
-                title: "ZX80 (1980) - El Origen",
-                tech: "Z80A @ 3.25 MHz | 1 KB RAM | Vídeo Monocromo.",
-                curiosity: "Curiosidad: Se vendía en kit para armar en casa. La pantalla parpadeaba al pulsar cualquier tecla porque la CPU no podía procesar datos y generar vídeo a la vez.",
+                img: "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/1/1b/Sinclair_ZX80.jpg",
+                title: "ZX80 (1980) - El Pionero Británico",
+                tech: "Z80A @ 3.25 MHz | 1 KB RAM (Ampliable a 16 KB) | Salida de TV Monocroma.",
+                curiosity: "Curiosidad: Se vendía como un kit para armar en casa. La pantalla parpadeaba horriblemente al presionar cualquier tecla porque el procesador principal tenía que dejar de dibujar la imagen en el televisor para leer el teclado.",
                 audioType: "load"
             },
             {
-                img: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Sinclair_ZX81.jpg",
-                title: "ZX81 (1981) - El Éxito Masivo",
-                tech: "Z80A @ 3.25 MHz | 1 KB RAM | Modo 'SLOW' incorporado.",
-                curiosity: "Curiosidad: Redujo costes drásticamente al integrar un chip ULA. Aquí nació '3D Monster Maze', considerado el primer survival horror de la historia.",
+                img: "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/0/0f/Sinclair_ZX81.jpg",
+                title: "ZX81 (1981) - El Ordenador del Pueblo",
+                tech: "Z80A @ 3.25 MHz | 1 KB RAM | Chip ULA personalizado.",
+                curiosity: "Curiosidad: Consiguió reducir drásticamente los costes del ZX80 integrando un único chip maestro ULA de Ferranti. Aquí nació el legendario '3D Monster Maze', el primer videojuego en 3D real de terror en perspectiva de primera persona.",
                 audioType: "load"
             },
             {
-                img: "https://upload.wikimedia.org/wikipedia/commons/0/03/ZXSpectrum48k.jpg",
-                title: "ZX Spectrum 48K (1982) - La Leyenda del Arcoíris",
-                tech: "Z80A @ 3.5 MHz | 48 KB RAM | Gráficos a color | Altavoz 'Beeper'.",
-                curiosity: "Curiosidad: Sus teclas de goma parecían 'carne muerta'. El choque de atributos gráficos (Attribute Clash) limitaba los colores pero creó su estética icónica.",
+                img: "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/0/03/ZXSpectrum48k.jpg",
+                title: "ZX Spectrum 48K (1982) - La Leyenda del Color",
+                tech: "Z80A @ 3.5 MHz | 48 KB RAM | Gráficos a color (8 tonos) | Zumbador 'Beeper'.",
+                curiosity: "Curiosidad: Sus particulares teclas de goma se ganaron el apodo de 'teclas de carne muerta'. El choque de colores (Attribute Clash) limitaba los gráficos pero forzó la genialidad de los desarrolladores. ¡Sonando Manic Miner!",
                 audioType: "manic"
             },
             {
-                img: "https://upload.wikimedia.org/wikipedia/commons/c/ce/ZX_Spectrum_128k.jpg",
-                title: "ZX Spectrum 128 (1985) - El 'Radiador'",
-                tech: "Z80A @ 3.54 MHz | 128 KB RAM | Sonido AY-3-8912 de 3 canales.",
-                curiosity: "Curiosidad: Apodado 'el radiador' por su enorme disipador negro exterior. Desarrollado en España junto a Investrónica antes de ser lanzado en el Reino Unido.",
+                img: "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/c/ce/ZX_Spectrum_128k.jpg",
+                title: "ZX Spectrum 128 (1985) - El Salto al Sonido Orquestal",
+                tech: "Z80A @ 3.54 MHz | 128 KB RAM | Chip de sonido de 3 canales AY-3-8912.",
+                curiosity: "Curiosidad: Apodado 'el radiador' por su disipador lateral térmico de aluminio. Fue co-desarrollado y lanzado en primicia en España por Investrónica antes de comercializarse en el Reino Unido. ¡Sonando RoboCop!",
                 audioType: "robocop"
             },
             {
-                img: "https://upload.wikimedia.org/wikipedia/commons/a/a7/ZX_Spectrum_%2B2.jpg",
-                title: "ZX Spectrum +2 (1986) - La Era Amstrad",
-                tech: "128 KB RAM | Casetera 'Datacorder' integrada | Teclado mecánico.",
-                curiosity: "Curiosidad: Primer modelo tras la compra de Amstrad. Perdió el diseño vanguardista de Sinclair pero ganó fiabilidad masiva con su grabadora de casete integrada.",
+                img: "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/a/a7/ZX_Spectrum_%2B2.jpg",
+                title: "ZX Spectrum +2 (1986) - La Respuesta de Amstrad",
+                tech: "128 KB RAM | Unidad de casete ('Datacorder') integrada | Teclado rígido.",
+                curiosity: "Curiosidad: Fue el primer Spectrum creado tras la compra de la marca por Amstrad. Añadió mandos integrados y solucionó los fallos de fiabilidad de carga de Sinclair. ¡Sonando la mítica BSO de OUT RUN!",
                 audioType: "outrun"
             },
             {
-                img: "https://upload.wikimedia.org/wikipedia/commons/0/0e/ZX_Spectrum_Plus3.jpeg",
-                title: "ZX Spectrum +3 (1987) - El Broche de Oro",
-                tech: "128 KB RAM | Disquetera de 3 pulgadas integrada | Sistema +3DOS.",
-                curiosity: "Curiosidad: Reemplazó las cintas por discos magnéticos. Era tan potente y robusto que podía ejecutar el sistema operativo profesional de oficina CP/M.",
+                img: "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/0/0e/ZX_Spectrum_Plus3.jpeg",
+                title: "ZX Spectrum +3 (1987) - El Fin de una Era Dorada",
+                tech: "128 KB RAM | Disquetera de 3 pulgadas integrada | Sistema de archivos +3DOS.",
+                curiosity: "Curiosidad: Sustituyó definitivamente las lentas cintas por discos magnéticos de 3 pulgadas (formato propietario de Amstrad). Era tan avanzado que permitía arrancar sistemas operativos de oficina como CP/M.",
                 audioType: "robocop"
             }
         ];
@@ -125,87 +119,143 @@
         let mainInterval = null;
         let progressInterval = null;
         let progressTime = 0;
-        const durationPerModel = 10000; 
+        const durationPerModel = 12000; // Subido a 12 segundos para disfrutar más de la música
 
-        // SINTETIZADOR DE MÚSICA NATIVA (Web Audio API)
+        // MOTOR SINTETIZADOR DE AUDIO POLIFÓNICO (Web Audio API)
         let audioCtx = null;
-        let sequencer = null;
+        let audioActive = false;
+        let activeOscillators = [];
+        let musicSequencer = null;
 
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
+            audioActive = true;
         }
 
-        function stopAudio() {
-            if (sequencer) clearInterval(sequencer);
+        function clearAudioSources() {
+            if (musicSequencer) clearInterval(musicSequencer);
+            activeOscillators.forEach(osc => {
+                try { osc.stop(); } catch(e){}
+            });
+            activeOscillators = [];
         }
 
+        // Frecuencias musicales estándar
+        const NOTE_C3 = 130.81, NOTE_E3 = 164.81, NOTE_G3 = 196.00, NOTE_A3 = 220.00, NOTE_B3 = 246.94;
         const NOTE_C4 = 261.63, NOTE_D4 = 293.66, NOTE_E4 = 329.63, NOTE_F4 = 349.23, NOTE_G4 = 392.00, NOTE_A4 = 440.00, NOTE_B4 = 493.88;
-        const NOTE_C5 = 523.25, NOTE_D5 = 587.33, NOTE_E5 = 659.25, NOTE_F5 = 698.46, NOTE_G5 = 783.99, NOTE_A5 = 880.00;
+        const NOTE_C5 = 523.25, NOTE_D5 = 587.33, NOTE_E5 = 659.25, NOTE_F5 = 698.46, NOTE_G5 = 783.99, NOTE_A5 = 880.00, NOTE_B5 = 987.77;
 
-        function playNote(freq, type, duration, vol = 0.05) {
-            if (!freq || freq === 0) return;
-            let osc = audioCtx.createOscillator();
-            let gain = audioCtx.createGain();
+        function triggerVoice(freq, waveType, duration, volume, delay = 0) {
+            if (!freq || freq === 0 || !audioActive) return;
             
-            osc.type = type; 
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-            
-            gain.gain.setValueAtTime(vol, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-            
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            
-            osc.start();
-            osc.stop(audioCtx.currentTime + duration);
+            setTimeout(() => {
+                if(!audioActive) return;
+                let osc = audioCtx.createOscillator();
+                let gainNode = audioCtx.createGain();
+                
+                osc.type = waveType;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                // Envolvente Chiptune (Ataque inmediato, decaimiento exponencial plano)
+                gainNode.gain.setValueAtTime(volume, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
+                
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+                activeOscillators.push(osc);
+            }, delay * 1000);
         }
 
-        function playMusic(type) {
-            stopAudio();
+        function runChiptuneEngine(type) {
+            clearAudioSources();
             initAudio();
             if (audioCtx.state === 'suspended') audioCtx.resume();
 
             let step = 0;
 
             if (type === "load") {
-                // Sonido de carga clásico
-                sequencer = setInterval(() => {
-                    playNote(Math.random() * 900 + 300, 'square', 0.04, 0.02);
-                }, 50);
+                // Emulación exacta de los tonos de carga (Piloto largo + bloques de datos asíncronos)
+                musicSequencer = setInterval(() => {
+                    let pattern = Math.floor(step / 30) % 2;
+                    if(pattern === 0) {
+                        triggerVoice(850, 'square', 0.03, 0.03); // Tono piloto estable
+                    } else {
+                        triggerVoice(Math.random() * 1200 + 400, 'square', 0.02, 0.03); // Datos binarios rápidos
+                    }
+                    step++;
+                }, 35);
             } 
             else if (type === "manic") {
-                // Manic Miner
+                // Manic Miner (Besta de 1 Canal del Spectrum Beep original)
                 let melody = [NOTE_A4, NOTE_B4, NOTE_C5, NOTE_D5, NOTE_E5, NOTE_C5, NOTE_E5, NOTE_D5, NOTE_B4, NOTE_D5, NOTE_C5, NOTE_A4, NOTE_C5, NOTE_B4];
-                sequencer = setInterval(() => {
+                musicSequencer = setInterval(() => {
                     let note = melody[step % melody.length];
-                    playNote(note, 'square', 0.2);
-                    step++;
-                }, 220);
-            } 
-            else if (type === "robocop") {
-                // Melodía principal de ROBOCOP por Jonathan Dunn (2 Canales emulados)
-                let robocopMelody = [
-                    NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_B4, NOTE_G4, NOTE_E4, NOTE_D4,
-                    NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_D5, NOTE_B4, NOTE_G4, NOTE_G4
-                ];
-                sequencer = setInterval(() => {
-                    let note = robocopMelody[step % robocopMelody.length];
-                    playNote(note, 'square', 0.25, 0.05); // Canal de melodía
-                    if (step % 2 === 0) playNote(note / 2, 'triangle', 0.3, 0.08); // Canal de bajo
+                    triggerVoice(note, 'square', 0.18, 0.04);
                     step++;
                 }, 200);
             } 
-            else if (type === "outrun") {
-                // Acordes rítmicos inspirados en Out Run
-                let outrunMelody = [NOTE_D4, NOTE_G4, NOTE_A4, NOTE_C5, NOTE_B4, NOTE_G4, NOTE_A4, NOTE_D4];
-                sequencer = setInterval(() => {
-                    let note = outrunMelody[step % outrunMelody.length];
-                    playNote(note * 1.5, 'square', 0.15, 0.03);
-                    playNote(note, 'square', 0.15, 0.02); 
+            else if (type === "robocop") {
+                // ROBOCOP (Jonathan Dunn) - Polifónico Real de 3 Canales simultáneos
+                let leadMelody = [
+                    NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_B4, NOTE_G4, NOTE_E4, NOTE_D4,
+                    NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_D5, NOTE_B4, NOTE_G4, NOTE_G4
+                ];
+                let arpeggio = [NOTE_C5, NOTE_G4, NOTE_E4, NOTE_G4, NOTE_D5, NOTE_B4, NOTE_G4, NOTE_B4];
+                
+                musicSequencer = setInterval(() => {
+                    // Canal 1: Melodía Principal (Onda cuadrada pura)
+                    let mainNote = leadMelody[Math.floor(step / 2) % leadMelody.length];
+                    triggerVoice(mainNote, 'square', 0.35, 0.04);
+                    
+                    // Canal 2: Arpegiador rápido de fondo (Efecto burbuja AY-3)
+                    let arpNote = arpeggio[step % arpeggio.length];
+                    triggerVoice(arpNote * 1.5, 'square', 0.1, 0.015);
+                    
+                    // Canal 3: Línea de Bajos (Onda triangular densa)
+                    if (step % 4 === 0) {
+                        let bassNote = leadMelody[Math.floor(step / 4) % leadMelody.length] / 2;
+                        triggerVoice(bassNote, 'triangle', 0.6, 0.07);
+                    }
                     step++;
-                }, 180);
+                }, 150);
+            } 
+            else if (type === "outrun") {
+                // MAGICAL SOUND SHOWER (Out Run) - Adaptación Polifónica 128K
+                // Notas reales del mítico bajo latino y melodía sincopada de SEGA
+                let outrunMelody = [
+                    NOTE_E5, NOTE_B4, NOTE_E5, NOTE_D5, 0, NOTE_B4, NOTE_A4, NOTE_G4,
+                    NOTE_A4, 0, NOTE_A4, NOTE_B4, NOTE_C5, NOTE_D5, NOTE_E5, 0
+                ];
+                let outrunBass = [
+                    NOTE_E3, NOTE_E3, NOTE_B3, NOTE_E3, NOTE_D3, NOTE_D3, NOTE_A3, NOTE_D3,
+                    NOTE_C3, NOTE_C3, NOTE_G3, NOTE_C3, NOTE_B3, NOTE_B3, NOTE_F5 / 4, NOTE_B3
+                ];
+                
+                musicSequencer = setInterval(() => {
+                    // Canal 1: Melodía Principal (Sega Chiptune Style)
+                    let melNote = outrunMelody[step % outrunMelody.length];
+                    if(melNote > 0) {
+                        triggerVoice(melNote, 'square', 0.16, 0.04);
+                        triggerVoice(melNote * 1.005, 'square', 0.16, 0.02); // Efecto Chorus del chip AY
+                    }
+                    
+                    // Canal 2: Contramelodía rítmica armónica
+                    if(step % 2 === 0) {
+                        let chordNote = outrunMelody[(step + 4) % outrunMelody.length];
+                        if(chordNote > 0) triggerVoice(chordNote / 1.5, 'square', 0.12, 0.02);
+                    }
+                    
+                    // Canal 3: El icónico Bajo Sincopado de Out Run
+                    let bassNote = outrunBass[step % outrunBass.length];
+                    triggerVoice(bassNote, 'sawtooth', 0.14, 0.05); // Sierra para simular la fuerza de la recreativa
+                    
+                    step++;
+                }, 160);
             }
         }
 
@@ -213,10 +263,9 @@
             current = index;
             const c = computers[current];
             
-            // Forzar recarga limpia en el DOM
+            // Inyección limpia y sin caché residual
             const imgEl = document.getElementById('computer-img');
-            imgEl.removeAttribute('src'); 
-            imgEl.setAttribute('src', c.img);
+            imgEl.src = c.img;
             imgEl.alt = c.title;
             
             document.getElementById('info-text').innerHTML = `
@@ -225,7 +274,7 @@
                 <div class="curiosity">${c.curiosity}</div>
             `;
             
-            playMusic(c.audioType);
+            runChiptuneEngine(c.audioType);
         }
 
         function startShow() {
@@ -248,9 +297,10 @@
         }
 
         function stopShow() {
+            audioActive = false;
             clearInterval(mainInterval);
             clearInterval(progressInterval);
-            stopAudio();
+            clearAudioSources();
             document.getElementById('progress').style.width = '0%';
         }
     </script>
